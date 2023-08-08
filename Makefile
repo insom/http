@@ -1,6 +1,6 @@
 .PHONY: all push docker
 http:
-	c++ -static -pthread http.cc -o http
+	clang++ -pthread http.cc -o http -lsocket -lsendfile
 all: docker push deploy
 docker:
 	docker build . -t http:latest
